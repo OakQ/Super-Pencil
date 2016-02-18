@@ -102,7 +102,7 @@ function moveDown(){
         console.log(w);
         console.log(walls.getChildAt(w).world.y - (player.world.y + 64));
         console.log(walls.getChildAt(w).world.x - player.world.x);
-        if (walls.getChildAt(w).world.x - player.world.x <= 24 && walls.getChildAt(w).world.x - player.world.x >= -24 && walls.getChildAt(w).world.y - (player.world.y + 64) >= -12 && walls.getChildAt(w).world.y - (player.world.y + 64) <= 12){
+        if (walls.getChildAt(w).world.x - player.world.x < 24 && walls.getChildAt(w).world.x - player.world.x > -24 && walls.getChildAt(w).world.y - (player.world.y + 64) > -12 && walls.getChildAt(w).world.y - (player.world.y + 64) < 12){
             block = true;
             console.log("Blocked");
         }
@@ -122,7 +122,7 @@ function moveUp(){
         console.log(w);
         console.log(walls.getChildAt(w).world.y - (player.world.y - 64));
         console.log(walls.getChildAt(w).world.x - player.world.x);
-        if (walls.getChildAt(w).world.x - player.world.x <= 24 && walls.getChildAt(w).world.x - player.world.x >= -24  && walls.getChildAt(w).world.y - (player.world.y + 64) >= -12 && walls.getChildAt(w).world.y - (player.world.y - 64) <= 12){
+        if (walls.getChildAt(w).world.x - player.world.x < 24 && walls.getChildAt(w).world.x - player.world.x > -24  && walls.getChildAt(w).world.y - (player.world.y + 64) > -12 && walls.getChildAt(w).world.y - (player.world.y - 64) < 12){
             block = true;
             console.log("Blocked");
         }
@@ -142,7 +142,7 @@ function moveLeft(){
         console.log(w);
         console.log(walls.getChildAt(w).world.y - player.world.y);
         console.log(walls.getChildAt(w).world.x - (player.world.x - 64));
-        if (walls.getChildAt(w).world.y - player.world.y <= 12 && walls.getChildAt(w).world.y - player.world.y >= -12 && walls.getChildAt(w).world.x - (player.world.x - 64) <= 24 && walls.getChildAt(w).world.x - (player.world.x - 64) >= -24){
+        if (walls.getChildAt(w).world.y - player.world.y < 12 && walls.getChildAt(w).world.y - player.world.y > -12 && walls.getChildAt(w).world.x - (player.world.x - 64) < 24 && walls.getChildAt(w).world.x - (player.world.x - 64) > -24){
             block = true;
             console.log("Blocked");
         }
@@ -162,7 +162,7 @@ function moveRight(){
         console.log(w);
         console.log(walls.getChildAt(w).world.y - player.world.y);
         console.log(walls.getChildAt(w).world.x - (player.world.x + 64));
-        if (walls.getChildAt(w).world.y - player.world.y <= 12 && walls.getChildAt(w).world.y - player.world.y >= -12 && walls.getChildAt(w).world.x - (player.world.x + 64) >= -24 && walls.getChildAt(w).world.x - (player.world.x + 64) <= 24){
+        if (walls.getChildAt(w).world.y - player.world.y < 12 && walls.getChildAt(w).world.y - player.world.y > -12 && walls.getChildAt(w).world.x - (player.world.x + 64) > -24 && walls.getChildAt(w).world.x - (player.world.x + 64) < 24){
             block = true;
             console.log("Blocked");
         }
