@@ -104,9 +104,10 @@ function moveDown(){
         console.log(walls.getChildAt(w).world.x - player.world.x);
         if (walls.getChildAt(w).world.x - player.world.x >= 24 && walls.getChildAt(w).world.y - (player.world.y + 64) >= -12){
             block = true;
+            console.log("Blocked");
         }
     }
-    console.log(block);   
+       
     if(yourTurn && !gameOver && !block){ //only works if it is the player's turn and the game isn't over
         playerTween = game.add.tween(player).to( { x: player.world.x, y: player.world.y + 64 }, 1000, "Linear", true); //move the player relative to its location slowly
         score -= 50;
@@ -123,9 +124,9 @@ function moveUp(){
         console.log(walls.getChildAt(w).world.x - player.world.x);
         if (walls.getChildAt(w).world.x - player.world.x <= 24 && walls.getChildAt(w).world.y - (player.world.y - 64) <= 12){
             block = true;
+            console.log("Blocked");
         }
-    } 
-    console.log(block); 
+    }  
     if(yourTurn && !gameOver && !block){
         playerTween = game.add.tween(player).to( { x: player.world.x, y: player.world.y - 64 }, 1000, "Linear", true);
         yourTurn = false;
@@ -143,9 +144,9 @@ function moveLeft(){
         console.log(walls.getChildAt(w).world.x - (player.world.x - 64));
         if (walls.getChildAt(w).world.y - player.world.y >= 12 && walls.getChildAt(w).world.x - (player.world.x - 64) <= 24){
             block = true;
+            console.log("Blocked");
         }
-    } 
-    console.log(block); 
+    }  
     if(yourTurn && !gameOver && !block){
         playerTween = game.add.tween(player).to( { x: player.world.x - 64, y: player.world.y }, 1000, "Linear", true);
         yourTurn = false;
@@ -163,9 +164,9 @@ function moveRight(){
         console.log(walls.getChildAt(w).world.x - (player.world.x + 64));
         if (walls.getChildAt(w).world.y - player.world.y >= 12 && walls.getChildAt(w).world.x - (player.world.x + 64) <= -24){
             block = true;
+            console.log("Blocked");
         }
     } 
-    console.log(block); 
     if(yourTurn && !gameOver && !block){
         playerTween = game.add.tween(player).to( { x: player.world.x + 64, y: player.world.y }, 1000, "Linear", true);
         yourTurn = false;
