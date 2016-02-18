@@ -104,7 +104,7 @@ function moveDown(){
         playerTween = game.add.tween(player).to( { x: player.world.x, y: player.world.y + 64 }, 1000, "Linear", true); //move the player relative to its location slowly
         score -= 50;
         scoreText.text = 'Score: ' + score;
-        playerTween.onComplete.add(playersTurn(false));
+        playerTween.onComplete.add(playersTurn);
     }
 }
 
@@ -114,7 +114,7 @@ function moveUp(){
         yourTurn = false;
         score -= 50;
         scoreText.text = 'Score: ' + score;
-        playerTween.onComplete.add(playersTurn(false));
+        playerTween.onComplete.add(playersTurn);
     }
 }
 
@@ -124,7 +124,7 @@ function moveLeft(){
         yourTurn = false;
         score -= 50;
         scoreText.text = 'Score: ' + score;
-        playerTween.onComplete.add(playersTurn(false));
+        playerTween.onComplete.add(playersTurn);
     }
 }
 
@@ -134,7 +134,7 @@ function moveRight(){
         yourTurn = false;
         score -= 50;
         scoreText.text = 'Score: ' + score;
-        playerTween.onComplete.add(playersTurn(false));
+        playerTween.onComplete.add(playersTurn);
     }    
 }
 
@@ -153,11 +153,11 @@ function enemyTurn(){ //the enemy moves randomly for its turn
         if (move == 3)
             enemyTween = game.add.tween(spooky).to( { x: spooky.world.x - 64, y: spooky.world.y }, 1000, "Linear", true);
     }
-    enemyTween.onComplete.add(playersTurn(true)); //player can't move until ghosts are done
+    enemyTween.onComplete.add(playersTurn); //player can't move until ghosts are done
 }
 
-function playersTurn(turn){
-    yourTurn = turn; //player's turn
+function playersTurn(){
+    yourTurn = !yourTurn; //player's turn
 }
 
 var col;
