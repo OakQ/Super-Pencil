@@ -103,6 +103,8 @@ function moveDown(){
     if(yourTurn && !gameOver){ //only works if it is the player's turn and the game isn't over
         game.add.tween(player).to( { x: player.world.x, y: player.world.y + 64 }, 1000, "Linear", true); //move the player relative to its location slowly
         yourTurn = false; //end turn
+        score -= 50;
+        scoreText.text = 'Score: ' + score;
     }
 }
 
@@ -110,6 +112,8 @@ function moveUp(){
     if(yourTurn && !gameOver){
         game.add.tween(player).to( { x: player.world.x, y: player.world.y - 64 }, 1000, "Linear", true);
         yourTurn = false;
+        score -= 50;
+        scoreText.text = 'Score: ' + score;
     }
 }
 
@@ -117,6 +121,8 @@ function moveLeft(){
     if(yourTurn && !gameOver){
         game.add.tween(player).to( { x: player.world.x - 64, y: player.world.y }, 1000, "Linear", true);
         yourTurn = false;
+        score -= 50;
+        scoreText.text = 'Score: ' + score;
     }
 }
 
@@ -124,6 +130,8 @@ function moveRight(){
     if(yourTurn && !gameOver){
         game.add.tween(player).to( { x: player.world.x + 64, y: player.world.y }, 1000, "Linear", true);
         yourTurn = false;
+        score -= 50;
+        scoreText.text = 'Score: ' + score;
     }    
 }
 
