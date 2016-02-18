@@ -53,7 +53,7 @@ function create() {
                 space = spaces.create(x * 64, y * 64, 'dungeonAtlas', 'ground'); //spaces in every other space
         }
     }
-    player = game.add.sprite(88, 76, 'dungeonAtlas', 'paddle_01');//64 + 24, 64 + 12
+    player = game.add.sprite(88, 70, 'dungeonAtlas', 'paddle_01');//64 + 24, 64 + 12
     player.animations.add('slide', Phaser.Animation.generateFrameNames('paddle_', 1, 10, '', 2), 10, true); //create the animation of player
     player.animations.play('slide');
     
@@ -102,7 +102,7 @@ function moveDown(){
         console.log(w);
         console.log(walls.getChildAt(w).world.y - (player.world.y + 64));
         console.log(walls.getChildAt(w).world.x - player.world.x);
-        if (walls.getChildAt(w).world.x - player.world.x < 24 && walls.getChildAt(w).world.x - player.world.x > -24 && walls.getChildAt(w).world.y - (player.world.y + 64) > -12 && walls.getChildAt(w).world.y - (player.world.y + 64) < 12){
+        if (walls.getChildAt(w).world.x - player.world.x <= 24 && walls.getChildAt(w).world.x - player.world.x => -24 && walls.getChildAt(w).world.y - (player.world.y + 64) => -12 && walls.getChildAt(w).world.y - (player.world.y + 64) <= 12){
             block = true;
             console.log("Blocked");
         }
@@ -123,7 +123,7 @@ function moveUp(){
         console.log(w);
         console.log(walls.getChildAt(w).world.y - (player.world.y - 64));
         console.log(walls.getChildAt(w).world.x - player.world.x);
-        if (walls.getChildAt(w).world.x - player.world.x < 24 && walls.getChildAt(w).world.x - player.world.x > -24  && walls.getChildAt(w).world.y - (player.world.y + 64) > -12 && walls.getChildAt(w).world.y - (player.world.y - 64) < 12){
+        if (walls.getChildAt(w).world.x - player.world.x <= 24 && walls.getChildAt(w).world.x - player.world.x >= -24  && walls.getChildAt(w).world.y - (player.world.y + 64) >= -12 && walls.getChildAt(w).world.y - (player.world.y - 64) <= 12){
             block = true;
             console.log("Blocked");
         }
@@ -143,7 +143,7 @@ function moveLeft(){
         console.log(w);
         console.log(walls.getChildAt(w).world.y - player.world.y);
         console.log(walls.getChildAt(w).world.x - (player.world.x - 64));
-        if (walls.getChildAt(w).world.y - player.world.y < 12 && walls.getChildAt(w).world.y - player.world.y > -12 && walls.getChildAt(w).world.x - (player.world.x - 64) < 24 && walls.getChildAt(w).world.x - (player.world.x - 64) > -24){
+        if (walls.getChildAt(w).world.y - player.world.y <= 12 && walls.getChildAt(w).world.y - player.world.y >= -12 && walls.getChildAt(w).world.x - (player.world.x - 64) <= 24 && walls.getChildAt(w).world.x - (player.world.x - 64) >= -24){
             block = true;
             console.log("Blocked");
         }
@@ -163,7 +163,7 @@ function moveRight(){
         console.log(w);
         console.log(walls.getChildAt(w).world.y - player.world.y);
         console.log(walls.getChildAt(w).world.x - (player.world.x + 64));
-        if (walls.getChildAt(w).world.y - player.world.y < 12 && walls.getChildAt(w).world.y - player.world.y > -12 && walls.getChildAt(w).world.x - (player.world.x + 64) > -24 && walls.getChildAt(w).world.x - (player.world.x + 64) < 24){
+        if (walls.getChildAt(w).world.y - player.world.y <= 12 && walls.getChildAt(w).world.y - player.world.y >= -12 && walls.getChildAt(w).world.x - (player.world.x + 64) >= -24 && walls.getChildAt(w).world.x - (player.world.x + 64) <= 24){
             block = true;
             console.log("Blocked");
         }
