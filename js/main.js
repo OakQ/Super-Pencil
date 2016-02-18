@@ -31,9 +31,8 @@ var text;
 var scoreText;
 var score;
 var gameOver;
-
+var wallLocs;
 function create() {
-    game.physics.startSystem(Phaser.Physics.ARCADE);
     
     music = game.add.audio('music');
     music.loop = true;
@@ -42,11 +41,14 @@ function create() {
     gameOver = false; //the game can't end before it starts
     yourTurn = true; //start with the player's turn
     spaces = game.add.group();
-    walls = game.add.physicsGroup(); //doesn't work as intended
+    walls = game.add.group(); //doesn't work as intended
+    wallLocs = [];
     for (var x = 0; x < 12; x++){
         for (var y = 0; y < 12; y++){
-            if (x ==0 || x == 11 || y == 0 || y == 11)
+            if (x ==0 || x == 11 || y == 0 || y == 11){
                 wall = walls.create(x * 64, y * 64, 'dungeonAtlas', 'wall'); //places walls on the 4 sides
+                wallLocs.push()
+            }
             else
                 space = spaces.create(x * 64, y * 64, 'dungeonAtlas', 'ground'); //spaces in every other space
         }
@@ -54,12 +56,10 @@ function create() {
     player = game.add.sprite(88, 70, 'dungeonAtlas', 'paddle_01');
     player.animations.add('slide', Phaser.Animation.generateFrameNames('paddle_', 1, 10, '', 2), 10, true); //create the animation of player
     player.animations.play('slide');
-    game.physics.enable(player);
     
-    spookies = game.add.group();
-    spookies.enableBody = true;
-    
+    spookies = game.add.group();    
     booties = game.add.group();
+
     for (var x = 1; x < 11; x++){
         for (var y = 1; y < 11; y++){
             place = Math.floor(Math.random() * 25);
@@ -67,7 +67,6 @@ function create() {
                 spooky = spookies.create(x * 64, y * 64, 'dungeonAtlas', 'ghost_1');
                 spooky.animations.add('rattle', Phaser.Animation.generateFrameNames('ghost_', 1, 2, '', 1), 2, true);
                 spooky.animations.play('rattle');
-                spooky.body.collideWorldBounds = true; //try to keep them inside. Doesn't work as intended
             }
             else if(place >= 2 && place < 3 && x != 1 && y != 1){ // 1/25 chance of putting down a chest
                 booty = booties.create(x * 64, y * 64, 'dungeonAtlas', 'chest_1');
@@ -92,13 +91,19 @@ function update () {
     left.onDown.add(moveLeft);
     right.onDown.add(moveRight);
 
-    game.physics.arcade.collide(player, walls); //doesn't work
     hit(); //checks for collsions
 }
 
 var playerTween;
-function moveDown(){    
-    if(yourTurn && !gameOver){ //only works if it is the player's turn and the game isn't over
+var block;
+function moveDown(){
+    block = false;
+    for (var w = 0; w < walls.length; w ++){
+        wall = walls.getChildAt(w);
+        if (Math.abs(wall.world.y - (player.world.y + 64)) <= 24)
+            block = true;
+    }    
+    if(yourTurn && !gameOver && !block){ //only works if it is the player's turn and the game isn't over
         playerTween = game.add.tween(player).to( { x: player.world.x, y: player.world.y + 64 }, 1000, "Linear", true); //move the player relative to its location slowly
         score -= 50;
         scoreText.text = 'Score: ' + score;
@@ -107,7 +112,15 @@ function moveDown(){
 }
 
 function moveUp(){
-    if(yourTurn && !gameOver){
+    block = false;
+    for (var w = 0; w < walls.length; w ++){
+        wall = walls.getChildAt(w);
+        if (Math.abs(wall.world.y - (player.world.y - 64)) <= 24){
+            block = true;
+            break;
+        }
+    } 
+    if(yourTurn && !gameOver && !block){
         playerTween = game.add.tween(player).to( { x: player.world.x, y: player.world.y - 64 }, 1000, "Linear", true);
         yourTurn = false;
         score -= 50;
@@ -117,7 +130,15 @@ function moveUp(){
 }
 
 function moveLeft(){
-    if(yourTurn && !gameOver){
+    block = false;
+    for (var w = 0; w < walls.length; w ++){
+        wall = walls.getChildAt(w);
+        if (Math.abs(wall.world.x - (player.world.x - 64)) <= 24){
+            block = true;
+            break;
+        }
+    } 
+    if(yourTurn && !gameOver && !block){
         playerTween = game.add.tween(player).to( { x: player.world.x - 64, y: player.world.y }, 1000, "Linear", true);
         yourTurn = false;
         score -= 50;
@@ -127,7 +148,15 @@ function moveLeft(){
 }
 
 function moveRight(){
-    if(yourTurn && !gameOver){
+    block = false;
+    for (var w = 0; w < walls.length; w ++){
+        wall = walls.getChildAt(w);
+        if (Math.abs(wall.world.x - (player.world.x + 64)) <= 24){
+            block = true;
+            break;
+        }
+    } 
+    if(yourTurn && !gameOver && !block){
         playerTween = game.add.tween(player).to( { x: player.world.x + 64, y: player.world.y }, 1000, "Linear", true);
         yourTurn = false;
         score -= 50;
