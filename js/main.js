@@ -31,7 +31,6 @@ var text;
 var scoreText;
 var score;
 var gameOver;
-var wallLocs;
 function create() {
     
     music = game.add.audio('music');
@@ -41,19 +40,17 @@ function create() {
     gameOver = false; //the game can't end before it starts
     yourTurn = true; //start with the player's turn
     spaces = game.add.group();
-    walls = game.add.group(); //doesn't work as intended
-    wallLocs = [];
+    walls = game.add.group();
     for (var x = 0; x < 12; x++){
         for (var y = 0; y < 12; y++){
             if (x ==0 || x == 11 || y == 0 || y == 11){
                 wall = walls.create(x * 64, y * 64, 'dungeonAtlas', 'wall'); //places walls on the 4 sides
-                wallLocs.push()
             }
             else
                 space = spaces.create(x * 64, y * 64, 'dungeonAtlas', 'ground'); //spaces in every other space
         }
     }
-    player = game.add.sprite(88, 70, 'dungeonAtlas', 'paddle_01');//64 + 24, 64 + 12
+    player = game.add.sprite(88, 70, 'dungeonAtlas', 'paddle_01');
     player.animations.add('slide', Phaser.Animation.generateFrameNames('paddle_', 1, 10, '', 2), 10, true); //create the animation of player
     player.animations.play('slide');
     
@@ -64,7 +61,7 @@ function create() {
         for (var y = 1; y < 11; y++){
             place = Math.floor(Math.random() * 25);
             if(place < 2 && x != 1 && y != 1){ //2/25 chance of placing down a ghost
-                spooky = spookies.create(x * 64, y * 64, 'dungeonAtlas', 'ghost_1');
+                spooky = spookies.create(x * 64, y * 64, 'dungeonAtlas', 'ghost_1'); //place it right on a tile
                 spooky.animations.add('rattle', Phaser.Animation.generateFrameNames('ghost_', 1, 2, '', 1), 2, true);
                 spooky.animations.play('rattle');
             }
@@ -97,23 +94,20 @@ function update () {
 var playerTween;
 var block;
 function moveDown(){
-    block = false;
-    for (var w = 0; w < walls.length; w ++){
-        console.log(w);
-        console.log(walls.getChildAt(w).world.y - (player.world.y + 64));
-        console.log(walls.getChildAt(w).world.x - player.world.x);
+    block = false; //we always start block with false. Decides if theree's a wall in our way
+    for (var w = 0; w < walls.length; w ++){ //go through each wall
         if (walls.getChildAt(w).world.x - player.world.x <= 24 && walls.getChildAt(w).world.x - player.world.x >= -24 && walls.getChildAt(w).world.y - (player.world.y + 64) >= -12 && walls.getChildAt(w).world.y - (player.world.y + 64) <= 12){
-            block = true;
-            console.log("Blocked");
+            //check to see if there's a wall in the direction our player is going within a range (for accuracy)
+            block = true; //if there's a wall in the way, we set block to true
         }
     }
        
-    if(yourTurn && !gameOver && !block){ //only works if it is the player's turn and the game isn't over
+    if(yourTurn && !gameOver && !block){ //only works if it is the player's turn, the game isn't over, and there isn't a block in the way
         playerTween = game.add.tween(player).to( { x: player.world.x, y: player.world.y + 64 }, 1000, "Linear", true); //move the player relative to its location slowly
-        yourTurn = false;
-        score -= 50;
+        yourTurn = false; //end our turn
+        score -= 50; //drop our score every move
         scoreText.text = 'Score: ' + score;
-        playerTween.onComplete.add(enemyTurn);
+        playerTween.onComplete.add(enemyTurn); //play the enemyTurn
     }
 }
 
