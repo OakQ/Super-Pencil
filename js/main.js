@@ -110,6 +110,7 @@ function moveDown(){
        
     if(yourTurn && !gameOver && !block){ //only works if it is the player's turn and the game isn't over
         playerTween = game.add.tween(player).to( { x: player.world.x, y: player.world.y + 64 }, 1000, "Linear", true); //move the player relative to its location slowly
+        yourTurn = false;
         score -= 50;
         scoreText.text = 'Score: ' + score;
         playerTween.onComplete.add(enemyTurn);
