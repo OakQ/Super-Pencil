@@ -58,83 +58,83 @@
 },
 {
 	"filename": "paddle_01",
-	"frame": {"x":64,"y":64,"w":16,"h":64},
+	"frame": {"x":64,"y":68,"w":16,"h":56},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":64},
-	"sourceSize": {"w":16,"h":64}
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":56},
+	"sourceSize": {"w":16,"h":56}
 },
 {
 	"filename": "paddle_02",
-	"frame": {"x":82,"y":64,"w":16,"h":64},
+	"frame": {"x":82,"y":68,"w":16,"h":56},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":64},
-	"sourceSize": {"w":16,"h":64}
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":56},
+	"sourceSize": {"w":16,"h":56}
 },
 {
 	"filename": "paddle_03",
-	"frame": {"x":100,"y":64,"w":16,"h":64},
+	"frame": {"x":100,"y":68,"w":16,"h":56},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":64},
-	"sourceSize": {"w":16,"h":64}
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":56},
+	"sourceSize": {"w":16,"h":56}
 },
 {
 	"filename": "paddle_04",
-	"frame": {"x":118,"y":64,"w":16,"h":64},
+	"frame": {"x":118,"y":68,"w":16,"h":56},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":64},
-	"sourceSize": {"w":16,"h":64}
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":56},
+	"sourceSize": {"w":16,"h":56}
 },
 {
 	"filename": "paddle_05",
-	"frame": {"x":136,"y":64,"w":16,"h":64},
+	"frame": {"x":136,"y":68,"w":16,"h":56},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":64},
-	"sourceSize": {"w":16,"h":64}
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":56},
+	"sourceSize": {"w":16,"h":56}
 },
 {
 	"filename": "paddle_06",
-	"frame": {"x":154,"y":64,"w":16,"h":64},
+	"frame": {"x":154,"y":68,"w":16,"h":56},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":64},
-	"sourceSize": {"w":16,"h":64}
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":56},
+	"sourceSize": {"w":16,"h":56}
 },
 {
 	"filename": "paddle_07",
-	"frame": {"x":172,"y":64,"w":16,"h":64},
+	"frame": {"x":172,"y":68,"w":16,"h":56},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":64},
-	"sourceSize": {"w":16,"h":64}
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":56},
+	"sourceSize": {"w":16,"h":56}
 },
 {
 	"filename": "paddle_08",
-	"frame": {"x":190,"y":64,"w":16,"h":64},
+	"frame": {"x":190,"y":68,"w":16,"h":56},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":64},
-	"sourceSize": {"w":16,"h":64}
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":56},
+	"sourceSize": {"w":16,"h":56}
 },
 {
 	"filename": "paddle_09",
-	"frame": {"x":208,"y":64,"w":16,"h":64},
+	"frame": {"x":208,"y":68,"w":16,"h":56},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":64},
-	"sourceSize": {"w":16,"h":64}
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":56},
+	"sourceSize": {"w":16,"h":56}
 },
 {
 	"filename": "paddle_10",
-	"frame": {"x":226,"y":64,"w":16,"h":64},
+	"frame": {"x":226,"y":68,"w":16,"h":56},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":64},
-	"sourceSize": {"w":16,"h":64}
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":56},
+	"sourceSize": {"w":16,"h":56}
 }],
 "meta": {
 	"app": "http://www.texturepacker.com",
