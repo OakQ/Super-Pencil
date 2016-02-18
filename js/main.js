@@ -158,6 +158,7 @@ function enemyTurn(){ //the enemy moves randomly for its turn
 
 function playersTurn(){
     yourTurn = !yourTurn; //player's turn
+    console.log(yourTurn);
 }
 
 var col;
