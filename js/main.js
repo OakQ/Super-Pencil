@@ -100,8 +100,8 @@ function moveDown(){
     block = false;
     for (var w = 0; w < walls.length; w ++){
         wall = walls.getChildAt(w);
-        console.log("Y diff: " + wall.world.y - (player.world.y + 64) <= -12);
-        console.log("X diff: " + wall.world.x - player.world.x >= 24);
+        console.log("Y diff: " + wall.world.y - (player.world.y + 64));
+        console.log("X diff: " + wall.world.x - player.world.x);
         if (wall.world.x - player.world.x >= 24 && wall.world.y - (player.world.y + 64) <= -12){
             block = true;
             break;
@@ -119,8 +119,8 @@ function moveUp(){
     block = false;
     for (var w = 0; w < walls.length; w ++){
         wall = walls.getChildAt(w);
-        console.log("Y diff: " + wall.world.y - (player.world.y - 64) <= 12);
-        console.log("X diff: " + wall.world.x - player.world.x >= 24);
+        console.log("Y diff: " + wall.world.y - (player.world.y - 64));
+        console.log("X diff: " + wall.world.x - player.world.x);
         if (wall.world.x - player.world.x <= 24 && wall.world.y - (player.world.y - 64) <= 12){
             block = true;
             break;
@@ -139,8 +139,8 @@ function moveLeft(){
     block = false;
     for (var w = 0; w < walls.length; w ++){
         wall = walls.getChildAt(w);
-        console.log("Y diff: " + wall.world.y - player.world.y >= 12);
-        console.log("X diff: " + wall.world.x - (player.world.x - 64) <= 24);
+        console.log("Y diff: " + wall.world.y - player.world.y);
+        console.log("X diff: " + wall.world.x - (player.world.x - 64));
         if (wall.world.y - player.world.y >= 12 && wall.world.x - (player.world.x - 64) <= 24){
             block = true;
             break;
@@ -159,8 +159,8 @@ function moveRight(){
     block = false;
     for (var w = 0; w < walls.length; w ++){
         wall = walls.getChildAt(w);
-        console.log("Y diff: " + wall.world.y - player.world.y >= 12);
-        console.log("X diff: " + wall.world.x - (player.world.x + 64) <= -24);
+        console.log("Y diff: " + wall.world.y - player.world.y);
+        console.log("X diff: " + wall.world.x - (player.world.x + 64));
         if (wall.world.y - player.world.y >= 12 && wall.world.x - (player.world.x + 64) <= -24){
             block = true;
             break;
