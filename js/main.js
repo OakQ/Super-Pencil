@@ -92,8 +92,6 @@ function update () {
     left.onDown.add(moveLeft);
     right.onDown.add(moveRight);
 
-    if (!yourTurn) //once our turn ends, the enmy takes a turn
-        enemyTurn();
     game.physics.arcade.collide(player, walls); //doesn't work
     hit(); //checks for collsions
 }
@@ -104,7 +102,7 @@ function moveDown(){
         playerTween = game.add.tween(player).to( { x: player.world.x, y: player.world.y + 64 }, 1000, "Linear", true); //move the player relative to its location slowly
         score -= 50;
         scoreText.text = 'Score: ' + score;
-        playerTween.onComplete.add(playersTurn);
+        playerTween.onComplete.add(enemyTurn);
     }
 }
 
@@ -114,7 +112,7 @@ function moveUp(){
         yourTurn = false;
         score -= 50;
         scoreText.text = 'Score: ' + score;
-        playerTween.onComplete.add(playersTurn);
+        playerTween.onComplete.add(enemyTurn);
     }
 }
 
@@ -124,7 +122,7 @@ function moveLeft(){
         yourTurn = false;
         score -= 50;
         scoreText.text = 'Score: ' + score;
-        playerTween.onComplete.add(playersTurn);
+        playerTween.onComplete.add(enemyTurn);
     }
 }
 
@@ -134,7 +132,7 @@ function moveRight(){
         yourTurn = false;
         score -= 50;
         scoreText.text = 'Score: ' + score;
-        playerTween.onComplete.add(playersTurn);
+        playerTween.onComplete.add(enemyTurn);
     }    
 }
 
@@ -157,8 +155,7 @@ function enemyTurn(){ //the enemy moves randomly for its turn
 }
 
 function playersTurn(){
-    yourTurn = !yourTurn; //player's turn
-    console.log(yourTurn);
+    yourTurn = true; //player's turn
 }
 
 var col;
