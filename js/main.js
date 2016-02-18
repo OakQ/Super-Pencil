@@ -123,7 +123,7 @@ function moveUp(){
         console.log(w);
         console.log(walls.getChildAt(w).world.y - (player.world.y - 64));
         console.log(walls.getChildAt(w).world.x - player.world.x);
-        if (walls.getChildAt(w).world.x - player.world.x <= 24 && walls.getChildAt(w).world.x - player.world.x >= -24  && walls.getChildAt(w).world.y - (player.world.y + 64) >= -12 && walls.getChildAt(w).world.y - (player.world.y - 64) <= 12){
+        if (walls.getChildAt(w).world.x - player.world.x <= 24 && walls.getChildAt(w).world.x - player.world.x >= -24  && walls.getChildAt(w).world.y - (player.world.y - 64) >= -12 && walls.getChildAt(w).world.y - (player.world.y - 64) <= 12){
             block = true;
             console.log("Blocked");
         }
