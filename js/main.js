@@ -142,7 +142,7 @@ function moveLeft(){
         console.log(w);
         console.log(walls.getChildAt(w).world.y - player.world.y);
         console.log(walls.getChildAt(w).world.x - (player.world.x - 64));
-        if (walls.getChildAt(w).world.y - player.world.y <= 12 && walls.getChildAt(w).world.y - player.world.y <= -12 && walls.getChildAt(w).world.x - (player.world.x - 64) <= 24 && walls.getChildAt(w).world.x - (player.world.x - 64) >= -24){
+        if (walls.getChildAt(w).world.y - player.world.y <= 12 && walls.getChildAt(w).world.y - player.world.y >= -12 && walls.getChildAt(w).world.x - (player.world.x - 64) <= 24 && walls.getChildAt(w).world.x - (player.world.x - 64) >= -24){
             block = true;
             console.log("Blocked");
         }
