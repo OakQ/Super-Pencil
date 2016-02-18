@@ -53,7 +53,7 @@ function create() {
                 space = spaces.create(x * 64, y * 64, 'dungeonAtlas', 'ground'); //spaces in every other space
         }
     }
-    player = game.add.sprite(88, 70, 'dungeonAtlas', 'paddle_01');
+    player = game.add.sprite(88, 76, 'dungeonAtlas', 'paddle_01');//64 + 24, 64 + 12
     player.animations.add('slide', Phaser.Animation.generateFrameNames('paddle_', 1, 10, '', 2), 10, true); //create the animation of player
     player.animations.play('slide');
     
@@ -100,8 +100,12 @@ function moveDown(){
     block = false;
     for (var w = 0; w < walls.length; w ++){
         wall = walls.getChildAt(w);
-        if (Math.abs(wall.world.y - (player.world.y + 64)) <= 24)
+        console.log("Y diff: " + wall.world.y - (player.world.y + 64) <= -12);
+        console.log("X diff: " + wall.world.x - player.world.x >= 24);
+        if (wall.world.x - player.world.x >= 24 && wall.world.y - (player.world.y + 64) <= -12){
             block = true;
+            break;
+        }
     }    
     if(yourTurn && !gameOver && !block){ //only works if it is the player's turn and the game isn't over
         playerTween = game.add.tween(player).to( { x: player.world.x, y: player.world.y + 64 }, 1000, "Linear", true); //move the player relative to its location slowly
@@ -115,7 +119,9 @@ function moveUp(){
     block = false;
     for (var w = 0; w < walls.length; w ++){
         wall = walls.getChildAt(w);
-        if (Math.abs(wall.world.y - (player.world.y - 64)) <= 24){
+        console.log("Y diff: " + wall.world.y - (player.world.y - 64) <= 12);
+        console.log("X diff: " + wall.world.x - player.world.x >= 24);
+        if (wall.world.x - player.world.x <= 24 && wall.world.y - (player.world.y - 64) <= 12){
             block = true;
             break;
         }
@@ -133,7 +139,9 @@ function moveLeft(){
     block = false;
     for (var w = 0; w < walls.length; w ++){
         wall = walls.getChildAt(w);
-        if (Math.abs(wall.world.x - (player.world.x - 64)) <= 24){
+        console.log("Y diff: " + wall.world.y - player.world.y >= 12);
+        console.log("X diff: " + wall.world.x - (player.world.x - 64) <= 24);
+        if (wall.world.y - player.world.y >= 12 && wall.world.x - (player.world.x - 64) <= 24){
             block = true;
             break;
         }
@@ -151,7 +159,9 @@ function moveRight(){
     block = false;
     for (var w = 0; w < walls.length; w ++){
         wall = walls.getChildAt(w);
-        if (Math.abs(wall.world.x - (player.world.x + 64)) <= 24){
+        console.log("Y diff: " + wall.world.y - player.world.y >= 12);
+        console.log("X diff: " + wall.world.x - (player.world.x + 64) <= -24);
+        if (wall.world.y - player.world.y >= 12 && wall.world.x - (player.world.x + 64) <= -24){
             block = true;
             break;
         }
