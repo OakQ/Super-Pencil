@@ -99,6 +99,7 @@ var block;
 function moveDown(){
     block = false;
     for (var w = 0; w < walls.length; w ++){
+        console.log(w);
         console.log(walls.getChildAt(w).world.y - (player.world.y + 64));
         console.log(walls.getChildAt(w).world.x - player.world.x);
         if (walls.getChildAt(w).world.x - player.world.x >= 24 && walls.getChildAt(w).world.y - (player.world.y + 64) <= -12){
@@ -117,6 +118,7 @@ function moveDown(){
 function moveUp(){
     block = false;
     for (var w = 0; w < walls.length; w ++){
+        console.log(w);
         console.log(walls.getChildAt(w).world.y - (player.world.y - 64));
         console.log(walls.getChildAt(w).world.x - player.world.x);
         if (walls.getChildAt(w).world.x - player.world.x <= 24 && walls.getChildAt(w).world.y - (player.world.y - 64) <= 12){
@@ -135,6 +137,7 @@ function moveUp(){
 function moveLeft(){
     block = false;
     for (var w = 0; w < walls.length; w ++){
+        console.log(w);
         console.log(walls.getChildAt(w).world.y - player.world.y);
         console.log(walls.getChildAt(w).world.x - (player.world.x - 64));
         if (walls.getChildAt(w).world.y - player.world.y >= 12 && walls.getChildAt(w).world.x - (player.world.x - 64) <= 24){
@@ -153,6 +156,7 @@ function moveLeft(){
 function moveRight(){
     block = false;
     for (var w = 0; w < walls.length; w ++){
+        console.log(w);
         console.log(walls.getChildAt(w).world.y - player.world.y);
         console.log(walls.getChildAt(w).world.x - (player.world.x + 64));
         if (walls.getChildAt(w).world.y - player.world.y >= 12 && walls.getChildAt(w).world.x - (player.world.x + 64) <= -24){
