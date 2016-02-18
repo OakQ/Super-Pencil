@@ -98,40 +98,43 @@ function update () {
     hit(); //checks for collsions
 }
 
-
+var playerTween;
 function moveDown(){    
     if(yourTurn && !gameOver){ //only works if it is the player's turn and the game isn't over
-        game.add.tween(player).to( { x: player.world.x, y: player.world.y + 64 }, 1000, "Linear", true); //move the player relative to its location slowly
-        yourTurn = false; //end turn
+        playerTween = game.add.tween(player).to( { x: player.world.x, y: player.world.y + 64 }, 1000, "Linear", true); //move the player relative to its location slowly
         score -= 50;
         scoreText.text = 'Score: ' + score;
+        playerTween.onComplete.add(playersTurn(false));
     }
 }
 
 function moveUp(){
     if(yourTurn && !gameOver){
-        game.add.tween(player).to( { x: player.world.x, y: player.world.y - 64 }, 1000, "Linear", true);
+        playerTween = game.add.tween(player).to( { x: player.world.x, y: player.world.y - 64 }, 1000, "Linear", true);
         yourTurn = false;
         score -= 50;
         scoreText.text = 'Score: ' + score;
+        playerTween.onComplete.add(playersTurn(false));
     }
 }
 
 function moveLeft(){
     if(yourTurn && !gameOver){
-        game.add.tween(player).to( { x: player.world.x - 64, y: player.world.y }, 1000, "Linear", true);
+        playerTween = game.add.tween(player).to( { x: player.world.x - 64, y: player.world.y }, 1000, "Linear", true);
         yourTurn = false;
         score -= 50;
         scoreText.text = 'Score: ' + score;
+        playerTween.onComplete.add(playersTurn(false));
     }
 }
 
 function moveRight(){
     if(yourTurn && !gameOver){
-        game.add.tween(player).to( { x: player.world.x + 64, y: player.world.y }, 1000, "Linear", true);
+        playerTween = game.add.tween(player).to( { x: player.world.x + 64, y: player.world.y }, 1000, "Linear", true);
         yourTurn = false;
         score -= 50;
         scoreText.text = 'Score: ' + score;
+        playerTween.onComplete.add(playersTurn(false));
     }    
 }
 
@@ -150,11 +153,11 @@ function enemyTurn(){ //the enemy moves randomly for its turn
         if (move == 3)
             enemyTween = game.add.tween(spooky).to( { x: spooky.world.x - 64, y: spooky.world.y }, 1000, "Linear", true);
     }
-    enemyTween.onComplete.add(playersTurn); //player can't move until ghosts are done
+    enemyTween.onComplete.add(playersTurn(true)); //player can't move until ghosts are done
 }
 
-function playersTurn(){
-    yourTurn = true; //player's turn
+function playersTurn(turn){
+    yourTurn = turn; //player's turn
 }
 
 var col;
