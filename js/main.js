@@ -96,20 +96,14 @@ function create() {
     wall4 = walls.create(608, 80, 'spookyAtlas', 'wall');
     walls.setAll('body.immovable', true);
 
+    wheel1 = walls.create(160, 109, 'spookyAtlas', 'wheel_1');
+    wheel2 = walls.create(256, 109, 'spookyAtlas', 'wheel_1');
+    wheel3 = walls.create(352, 109, 'spookyAtlas', 'wheel_1');
+    wheel4 = walls.create(448, 109, 'spookyAtlas', 'wheel_1');
+    wheels.callAll('animations.add', 'animations', 'turn', Phaser.Animation.generateFrameNames('wheel_', 1, 3, '', 1), 3, false);
+
     reset = game.add.sprite(64, 109, 'spookyAtlas', 'reset_1');
     reset.animations.add('turn', Phaser.Animation.generateFrameNames('reset_', 1, 3, '', 1), 3, false);
-
-    wheel1 = game.add.sprite(160, 109, 'spookyAtlas', 'wheel_1');
-    wheel1.animations.add('turn', Phaser.Animation.generateFrameNames('wheel_', 1, 3, '', 1), 3, false);
-
-    wheel2 = game.add.sprite(256, 109, 'spookyAtlas', 'wheel_1');
-    wheel2.animations.add('turn', Phaser.Animation.generateFrameNames('wheel_', 1, 3, '', 1), 3, false);
-
-    wheel3 = game.add.sprite(352, 109, 'spookyAtlas', 'wheel_1');
-    wheel3.animations.add('turn', Phaser.Animation.generateFrameNames('wheel_', 1, 3, '', 1), 3, false);
-
-    wheel4 = game.add.sprite(448, 109, 'spookyAtlas', 'wheel_1');
-    wheel4.animations.add('turn', Phaser.Animation.generateFrameNames('wheel_', 1, 3, '', 1), 3, false);
 
     //create two new buttons for gameplay
     activateButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
