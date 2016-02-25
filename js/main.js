@@ -193,7 +193,7 @@ function moveWalls(moveWall1, moveWall2, moveWall3, moveWall4){ //called from Ac
         wall4Down *= -1;
     }
     else
-        wallTween = game.add.tween(wall4).to( { x: wall4.world.x, y: wall4.world.y }, 1000, "Linear", true); //does nothing, ensures that onComplete works properly
+        wallTween = game.add.tween(ground).to( { x: ground.world.x, y: ground.world.y }, 1000, "Linear", true); //does nothing, ensures that onComplete works properly
     activated = true; //set to be true so that player can't hit more than one switch until the walls are done moving
     turnWheel.play(); //plays the sound
     wallTween.onComplete.add(Reactivate); //sets activated to false once the tween is done
@@ -206,34 +206,34 @@ function resetGame(resetWheelTurned){ //will either reset the walls or reset the
     if(wall1Down == -1){ // if a wall is down
             wallTween = game.add.tween(wall1).to( { x: wall1.world.x, y: wall1.world.y + (96 * wall1Down) }, 1000, "Linear", true); //brings wall back up
             wall1Down = 1; //wall is up
-        }
-        if(wall2Down == -1){
-            wallTween = game.add.tween(wall2).to( { x: wall2.world.x, y: wall2.world.y + (96 * wall2Down) }, 1000, "Linear", true);
-            wall2Down = 1;
-        }
-        if(wall3Down == -1){
-            wallTween = game.add.tween(wall3).to( { x: wall3.world.x, y: wall3.world.y + (96 * wall3Down) }, 1000, "Linear", true);
-            wall3Down = 1;
-        }
-        if(wall4Down == -1){
-            wallTween = game.add.tween(wall4).to( { x: wall4.world.x, y: wall4.world.y + (96 * wall4Down) }, 1000, "Linear", true);
-            wall4Down = 1;
-        }
-        else
-            wallTween = game.add.tween(wall4).to( { x: wall4.world.x, y: wall4.world.y }, 1000, "Linear", true); //does nothing if all walls were already up
+    }
+    if(wall2Down == -1){
+        wallTween = game.add.tween(wall2).to( { x: wall2.world.x, y: wall2.world.y + (96 * wall2Down) }, 1000, "Linear", true);
+        wall2Down = 1;
+    }
+    if(wall3Down == -1){
+        wallTween = game.add.tween(wall3).to( { x: wall3.world.x, y: wall3.world.y + (96 * wall3Down) }, 1000, "Linear", true);
+        wall3Down = 1;
+    }
+    if(wall4Down == -1){
+        wallTween = game.add.tween(wall4).to( { x: wall4.world.x, y: wall4.world.y + (96 * wall4Down) }, 1000, "Linear", true);
+        wall4Down = 1;
+    }
+    else
+        wallTween = game.add.tween(wall4).to( { x: wall4.world.x, y: wall4.world.y }, 1000, "Linear", true); //does nothing if all walls were already up
 
-        if(resetWheelTurned){ //if the reset wheel was turned
-            reset.animations.play('turn'); //play the animation
-            turnWheel.play(); //play the sound
-        }
-        else{ //if the chest was triggered and the player hit ENTER
-            spooky.x = 64; //resets ghost's postion
-            chest.frameName = 'chest_1'; //reset chest
-            gameOver = false; //reset game
-            text.text = '-> and <- keys to move, SPACE to activate'; //reset instructions
-        }
-        activated = true; //wheel was activated
-        wallTween.onComplete.add(Reactivate); //sets activated to false once tween is complete 
+    if(resetWheelTurned){ //if the reset wheel was turned
+        reset.animations.play('turn'); //play the animation
+        turnWheel.play(); //play the sound
+    }
+    else{ //if the chest was triggered and the player hit ENTER
+        spooky.x = 64; //resets ghost's postion
+        chest.frameName = 'chest_1'; //reset chest
+        gameOver = false; //reset game
+        text.text = '-> and <- keys to move, SPACE to activate'; //reset instructions
+    }
+    activated = true; //wheel was activated
+    wallTween.onComplete.add(Reactivate); //sets activated to false once tween is complete 
 }
 
 function checkOverlap(spriteA, spriteB) { //check for overlaps between player and objects
