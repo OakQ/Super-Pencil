@@ -101,6 +101,7 @@ function create() {
     wheel3 = wheels.create(352, 109, 'spookyAtlas', 'wheel_1');
     wheel4 = wheels.create(448, 109, 'spookyAtlas', 'wheel_1');
     wheels.callAll('animations.add', 'animations', 'turn', Phaser.Animation.generateFrameNames('wheel_', 1, 3, '', 1), 3, false);
+    wheels.enableBody = false;
 
     reset = game.add.sprite(64, 109, 'spookyAtlas', 'reset_1');
     reset.animations.add('turn', Phaser.Animation.generateFrameNames('reset_', 1, 3, '', 1), 3, false);
