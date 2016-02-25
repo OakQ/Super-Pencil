@@ -59,7 +59,7 @@ function create() {
     wall3Down = 1;
     wall4Down = 1;
     
-     text = game.add.text(32, 32, '-> and <- keys to move, SPACE to activate', { font: "20px Arial", fill: "#ffffff", align: "center" }); //instructions
+    text = game.add.text(32, 32, '-> and <- keys to move, SPACE to activate', { font: "20px Arial", fill: "#ffffff", align: "center" }); //instructions
     
     player = game.add.group();
     player.enableBody = true;
@@ -75,7 +75,7 @@ function create() {
     
     wheels = game.add.group();
        
-    spooky = player.create(64, 96, 'spookyAtlas', 'spooky_right_1'); //start him facing to the right
+    spooky = game.add.sprite(64, 96, 'spookyAtlas', 'spooky_right_1'); //start him facing to the right
     spooky.animations.add('right', Phaser.Animation.generateFrameNames('spooky_right_', 1, 2, '', 1), 2, true); //aniamtion of him facing right
     spooky.animations.add('left', Phaser.Animation.generateFrameNames('spooky_left_', 1, 2, '', 1), 2, true); //and left
     spooky.animations.play('right'); //start him facing right
@@ -92,47 +92,37 @@ function create() {
             }
         }
     }
+    wall1 = walls.create(512, 80, 'spookyAtlas', 'wall');
+    //wall1.body.immovable = true;
     
-    for (var i = 0; i < 20; i++){ //create our 4 walls, 4 wheels, and reset wheel
-        if (i == 16){ 
-            wall1 = walls.create(i * 32, 80, 'spookyAtlas', 'wall');
-            wall1.body.immovable = true;
-        }
-        if (i == 17){
-            wall2 = walls.create(i * 32, 80, 'spookyAtlas', 'wall');
-            game.physics.arcade.enable(wall2);
-            wall2.body.immovable = true;
-        }
-        if (i == 18){
-            wall3 = walls.create(i * 32, 80, 'spookyAtlas', 'wall');
-            game.physics.arcade.enable(wall3);
-            wall3.body.immovable = true;
-        }
-        if (i == 19){
-            wall4 = walls.create(i * 32, 80, 'spookyAtlas', 'wall');
-            game.physics.arcade.enable(wall4);
-            wall4.body.immovable = true;
-        }
-        if (i == 2){
-            reset = game.add.sprite(i * 32, 109, 'spookyAtlas', 'reset_1');
-            reset.animations.add('turn', Phaser.Animation.generateFrameNames('reset_', 1, 3, '', 1), 3, false);
-        }
-        if (i == 5){
-            wheel1 = game.add.sprite(i * 32, 109, 'spookyAtlas', 'wheel_1');
-            wheel1.animations.add('turn', Phaser.Animation.generateFrameNames('wheel_', 1, 3, '', 1), 3, false);
-        }
-        if (i == 8){
-            wheel2 = game.add.sprite(i * 32, 109, 'spookyAtlas', 'wheel_1');
-            wheel2.animations.add('turn', Phaser.Animation.generateFrameNames('wheel_', 1, 3, '', 1), 3, false);
-        }
-        if (i == 11){
-            wheel3 = game.add.sprite(i * 32, 109, 'spookyAtlas', 'wheel_1');
-            wheel3.animations.add('turn', Phaser.Animation.generateFrameNames('wheel_', 1, 3, '', 1), 3, false);
-        }       
-        if (i == 14){
-            wheel4 = game.add.sprite(i * 32, 109, 'spookyAtlas', 'wheel_1');
-            wheel4.animations.add('turn', Phaser.Animation.generateFrameNames('wheel_', 1, 3, '', 1), 3, false);
-        }
+    wall2 = walls.create(544, 80, 'spookyAtlas', 'wall');
+    game.physics.arcade.enable(wall2);
+    //wall2.body.immovable = true;
+
+    wall3 = walls.create(576, 80, 'spookyAtlas', 'wall');
+    game.physics.arcade.enable(wall3);
+    //wall3.body.immovable = true;
+
+    wall4 = walls.create(608, 80, 'spookyAtlas', 'wall');
+    game.physics.arcade.enable(wall4);
+    //wall4.body.immovable = true;
+
+    walls.setAll('body.immovable', true);
+
+    reset = game.add.sprite(64, 109, 'spookyAtlas', 'reset_1');
+    reset.animations.add('turn', Phaser.Animation.generateFrameNames('reset_', 1, 3, '', 1), 3, false);
+
+    wheel1 = game.add.sprite(160, 109, 'spookyAtlas', 'wheel_1');
+    wheel1.animations.add('turn', Phaser.Animation.generateFrameNames('wheel_', 1, 3, '', 1), 3, false);
+
+    wheel2 = game.add.sprite(256, 109, 'spookyAtlas', 'wheel_1');
+    wheel2.animations.add('turn', Phaser.Animation.generateFrameNames('wheel_', 1, 3, '', 1), 3, false);
+
+    wheel3 = game.add.sprite(352, 109, 'spookyAtlas', 'wheel_1');
+    wheel3.animations.add('turn', Phaser.Animation.generateFrameNames('wheel_', 1, 3, '', 1), 3, false);
+
+    wheel4 = game.add.sprite(448, 109, 'spookyAtlas', 'wheel_1');
+    wheel4.animations.add('turn', Phaser.Animation.generateFrameNames('wheel_', 1, 3, '', 1), 3, false);
     }
     //create two new buttons for gameplay
     activateButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
