@@ -67,8 +67,8 @@ function create() {
     spooky.animations.play('right'); //start him facing right
     game.physics.arcade.enable(spooky);
     spooky.body.enable = true;
-
-    chest = game.add.sprite(680, 107, 'spookyAtlas', 'chest_1');
+    //680
+    chest = game.add.sprite(120, 107, 'spookyAtlas', 'chest_1');
     chest.animations.add('open', Phaser.Animation.generateFrameNames('chest_', 1, 2, '', 1), 2, false);
 
     walls = game.add.group();
@@ -138,7 +138,7 @@ function update() {
         activateButton.onDown.add(Activate); //activates the wheel or the chest he's on
     }
     else //add false
-        restartButton.onDown.add(resetGame, false); //restarts the game after winning
+        restartButton.onDown.add(function () { resetGame(false); }); //restarts the game after winning
 }
 
 var wallTween;
