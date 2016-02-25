@@ -90,21 +90,10 @@ function create() {
             }
         }
     }
-    wall1 = walls.create(512, 80, 'spookyAtlas', 'wall');
-    //wall1.body.immovable = true;
-    
+    wall1 = walls.create(512, 80, 'spookyAtlas', 'wall');   
     wall2 = walls.create(544, 80, 'spookyAtlas', 'wall');
-    game.physics.arcade.enable(wall2);
-    //wall2.body.immovable = true;
-
     wall3 = walls.create(576, 80, 'spookyAtlas', 'wall');
-    game.physics.arcade.enable(wall3);
-    //wall3.body.immovable = true;
-
     wall4 = walls.create(608, 80, 'spookyAtlas', 'wall');
-    game.physics.arcade.enable(wall4);
-    //wall4.body.immovable = true;
-
     walls.setAll('body.immovable', true);
 
     reset = game.add.sprite(64, 109, 'spookyAtlas', 'reset_1');
