@@ -92,7 +92,7 @@ function create() {
             }
         }
     }
-    wall1 = walls.create(512, 80, 'spookyAtlas', 'wall');
+    wall1 = walls.create(512, 70, 'spookyAtlas', 'wall');
     //wall1.body.immovable = true;
     
     wall2 = walls.create(544, 80, 'spookyAtlas', 'wall');
