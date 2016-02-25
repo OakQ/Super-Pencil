@@ -137,8 +137,8 @@ function update() {
         }
         activateButton.onDown.add(Activate); //activates the wheel or the chest he's on
     }
-    else
-        restartButton.onDown.add(resetGame); //restarts the game after winning
+    else //add false
+        restartButton.onDown.add(resetGame, false); //restarts the game after winning
 }
 
 var wallTween;
@@ -162,41 +162,9 @@ function Activate(){ //use overlap to see whcih object he's overlapping
         moveWalls(true, true, false, false);
         wheel4.animations.play('turn');
     }
-        /*wallTween = game.add.tween(wall1).to( { x: wall1.world.x, y: wall1.world.y + (96 * wall1Down) }, 1000, "Linear", true);
-         wallTween = game.add.tween(wall2).to( { x: wall2.world.x, y: wall2.world.y + (96 * wall2Down) }, 1000, "Linear", true);
-        wall1Down *= -1;
-        wall2Down *= -1;
-        activated = true;
-        wheel4.animations.play('turn');
-        turnWheel.play();
-        wallTween.onComplete.add(Reactivate); 
-    }*/
     
     if(checkOverlap(spooky, reset) && !activated)//{ //reset wheel takes any walls still down and raises them back up
-        resetGame(false);
-        /*if(wall1Down == -1){ //checks WallDown to see if it's down
-            wallTween = game.add.tween(wall1).to( { x: wall1.world.x, y: wall1.world.y + (96 * wall1Down) }, 1000, "Linear", true); //bring it up
-            wall1Down = 1; //set wallDown
-        }
-        if(wall2Down == -1){
-            wallTween = game.add.tween(wall2).to( { x: wall2.world.x, y: wall2.world.y + (96 * wall2Down) }, 1000, "Linear", true);
-            wall2Down = 1;
-        }
-        if(wall3Down == -1){
-            wallTween = game.add.tween(wall3).to( { x: wall3.world.x, y: wall3.world.y + (96 * wall3Down) }, 1000, "Linear", true);
-            wall3Down = 1;
-        }
-        if(wall4Down == -1){
-            wallTween = game.add.tween(wall4).to( { x: wall4.world.x, y: wall4.world.y + (96 * wall4Down) }, 1000, "Linear", true);
-            wall4Down = 1;
-        }
-        else //if all walls were already raised
-            wallTween = game.add.tween(wall4).to( { x: wall4.world.x, y: wall4.world.y }, 1000, "Linear", true); //this tween actually does nothing
-        activated = true;
-        reset.animations.play('turn');
-        turnWheel.play();
-        wallTween.onComplete.add(Reactivate); //triggers when the tween is done, even if it actually did nothing
-    }*/
+        resetGame(true);
     
     if(checkOverlap(spooky, chest)){ //if the chest is activated, player wins
         chest.animations.play('open');
