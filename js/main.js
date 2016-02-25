@@ -92,7 +92,7 @@ function create() {
             }
         }
     }
-    wall1 = walls.create(512, 70, 'spookyAtlas', 'wall');
+    wall1 = walls.create(512, 80, 'spookyAtlas', 'wall');
     //wall1.body.immovable = true;
     
     wall2 = walls.create(544, 80, 'spookyAtlas', 'wall');
@@ -123,7 +123,7 @@ function create() {
 
     wheel4 = game.add.sprite(448, 109, 'spookyAtlas', 'wheel_1');
     wheel4.animations.add('turn', Phaser.Animation.generateFrameNames('wheel_', 1, 3, '', 1), 3, false);
-    }
+
     //create two new buttons for gameplay
     activateButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     restartButton = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
