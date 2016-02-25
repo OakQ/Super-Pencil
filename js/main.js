@@ -176,6 +176,7 @@ function Activate(){ //use overlap to see whcih object he's overlapping
 }
 
 function moveWalls(moveWall1, moveWall2, moveWall3, moveWall4){ //called from Activate to move walls. The walls that have to be moved are determined by params
+    wallTween = game.add.tween(ground).to( { x: ground.world.x, y: ground.world.y }, 1000, "Linear", true); //does nothing, ensures that onComplete works properly
     if(moveWall1){ //1st wall
         wallTween = game.add.tween(wall1).to( { x: wall1.world.x, y: wall1.world.y + (96 * wall1Down) }, 1000, "Linear", true); //multiply 96 by wallDown to decide which direction it goes
         wall1Down *= -1; //invert wall1Down so that if this wall is triggered again, it'll go the other way
@@ -192,8 +193,7 @@ function moveWalls(moveWall1, moveWall2, moveWall3, moveWall4){ //called from Ac
         wallTween = game.add.tween(wall4).to( { x: wall4.world.x, y: wall4.world.y + (96 * wall4Down) }, 1000, "Linear", true);
         wall4Down *= -1;
     }
-    else
-        wallTween = game.add.tween(ground).to( { x: ground.world.x, y: ground.world.y }, 1000, "Linear", true); //does nothing, ensures that onComplete works properly
+  
     activated = true; //set to be true so that player can't hit more than one switch until the walls are done moving
     turnWheel.play(); //plays the sound
     wallTween.onComplete.add(Reactivate); //sets activated to false once the tween is done
@@ -203,9 +203,10 @@ function Reactivate(){
 }
 
 function resetGame(resetWheelTurned){ //will either reset the walls or reset the entire game based on whther it was activated by the chest or the reset wheel
+    wallTween = game.add.tween(ground).to( { x: ground.world.x, y: ground.world.y }, 1000, "Linear", true); //does nothing if all walls were already up
     if(wall1Down == -1){ // if a wall is down
-            wallTween = game.add.tween(wall1).to( { x: wall1.world.x, y: wall1.world.y + (96 * wall1Down) }, 1000, "Linear", true); //brings wall back up
-            wall1Down = 1; //wall is up
+        wallTween = game.add.tween(wall1).to( { x: wall1.world.x, y: wall1.world.y + (96 * wall1Down) }, 1000, "Linear", true); //brings wall back up
+        wall1Down = 1; //wall is up
     }
     if(wall2Down == -1){
         wallTween = game.add.tween(wall2).to( { x: wall2.world.x, y: wall2.world.y + (96 * wall2Down) }, 1000, "Linear", true);
@@ -219,8 +220,6 @@ function resetGame(resetWheelTurned){ //will either reset the walls or reset the
         wallTween = game.add.tween(wall4).to( { x: wall4.world.x, y: wall4.world.y + (96 * wall4Down) }, 1000, "Linear", true);
         wall4Down = 1;
     }
-    else
-        wallTween = game.add.tween(wall4).to( { x: wall4.world.x, y: wall4.world.y }, 1000, "Linear", true); //does nothing if all walls were already up
 
     if(resetWheelTurned){ //if the reset wheel was turned
         reset.animations.play('turn'); //play the animation
