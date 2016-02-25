@@ -154,8 +154,8 @@ function Activate(){ //use overlap to see whcih object he's overlapping
         wheel2.animations.play('turn');
     }
     
-    if(checkOverlap(spooky, wheel3) && !activated){ //3rd wheel activates walls 3 and 4
-        moveWalls(false, false, true, true);
+    if(checkOverlap(spooky, wheel3) && !activated){ //3rd wheel activates walls 2 and 3
+        moveWalls(false, true, true, false);
         wheel3.animations.play('turn');
     }
     
