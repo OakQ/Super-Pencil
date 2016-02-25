@@ -76,6 +76,7 @@ function create() {
     spooky.animations.add('left', Phaser.Animation.generateFrameNames('spooky_left_', 1, 2, '', 1), 2, true); //and left
     spooky.animations.play('right'); //start him facing right
     game.physics.arcade.enable(spooky);
+    spooky.body.enable = true;
     
     chest = game.add.sprite(680, 107, 'spookyAtlas', 'chest_1');
     chest.animations.add('open', Phaser.Animation.generateFrameNames('chest_', 1, 2, '', 1), 2, false);
