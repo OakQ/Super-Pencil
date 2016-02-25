@@ -61,10 +61,6 @@ function create() {
     
     text = game.add.text(32, 32, '-> and <- keys to move, SPACE to activate', { font: "20px Arial", fill: "#ffffff", align: "center" }); //instructions
     
-    player = game.add.group();
-    player.enableBody = true;
-    player.physicsBodyType = Phaser.Physics.ARCADE;
-    
     walls = game.add.group();
     walls.enableBody = true;
     walls.physicsBodyType = Phaser.Physics.ARCADE;
@@ -79,6 +75,7 @@ function create() {
     spooky.animations.add('right', Phaser.Animation.generateFrameNames('spooky_right_', 1, 2, '', 1), 2, true); //aniamtion of him facing right
     spooky.animations.add('left', Phaser.Animation.generateFrameNames('spooky_left_', 1, 2, '', 1), 2, true); //and left
     spooky.animations.play('right'); //start him facing right
+    game.physics.arcade.enable(spooky);
     
     chest = game.add.sprite(680, 107, 'spookyAtlas', 'chest_1');
     chest.animations.add('open', Phaser.Animation.generateFrameNames('chest_', 1, 2, '', 1), 2, false);
