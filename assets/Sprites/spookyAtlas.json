@@ -106,11 +106,11 @@
 },
 {
 	"filename": "wall",
-	"frame": {"x":288,"y":18,"w":16,"h":146},
+	"frame": {"x":288,"y":0,"w":16,"h":128},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":146},
-	"sourceSize": {"w":16,"h":146}
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":128},
+	"sourceSize": {"w":16,"h":128}
 }],
 "meta": {
 	"app": "http://www.texturepacker.com",
