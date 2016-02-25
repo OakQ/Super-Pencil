@@ -143,17 +143,25 @@ function update() {
 
 var wallTween;
 function Activate(){ //use overlap to see whcih object he's overlapping  
-    if(checkOverlap(spooky, wheel1) && !activated) //1st wheel activates walls 2 and 4       
+    if(checkOverlap(spooky, wheel1) && !activated){ //1st wheel activates walls 2 and 4       
         moveWalls(false, true, false, true);
+        wheel1.animations.play('turn');
+    }
     
-    if(checkOverlap(spooky, wheel2) && !activated) //2nd wheel activates walls 2, 3, and 4
+    if(checkOverlap(spooky, wheel2) && !activated){ //2nd wheel activates walls 2, 3, and 4
         moveWalls(false, true, true, true);
+        wheel2.animations.play('turn');
+    }
     
-    if(checkOverlap(spooky, wheel3) && !activated) //3rd wheel activates walls 3 and 4
+    if(checkOverlap(spooky, wheel3) && !activated){ //3rd wheel activates walls 3 and 4
         moveWalls(false, false, true, true);
+        wheel3.animations.play('turn');
+    }
     
-    if(checkOverlap(spooky, wheel4) && !activated)//{ //4th wheel activates walls 1 and 2
+    if(checkOverlap(spooky, wheel4) && !activated){//{ //4th wheel activates walls 1 and 2
         moveWalls(true, true, false, false);
+        wheel4.animations.play('turn');
+    }
         /*wallTween = game.add.tween(wall1).to( { x: wall1.world.x, y: wall1.world.y + (96 * wall1Down) }, 1000, "Linear", true);
          wallTween = game.add.tween(wall2).to( { x: wall2.world.x, y: wall2.world.y + (96 * wall2Down) }, 1000, "Linear", true);
         wall1Down *= -1;
@@ -202,22 +210,18 @@ function moveWalls(moveWall1, moveWall2, moveWall3, moveWall4){
     if(moveWall1){
         wallTween = game.add.tween(wall1).to( { x: wall1.world.x, y: wall1.world.y + (96 * wall1Down) }, 1000, "Linear", true); //multiply 96 by wallDown to decide which direction it goes
         wall1Down *= -1; //invert wall1Down so that if this wall is triggered again, it'll go the other way
-        wheel1.animations.play('turn');
     }
    if(moveWall2){
         wallTween = game.add.tween(wall2).to( { x: wall2.world.x, y: wall2.world.y + (96 * wall2Down) }, 1000, "Linear", true);
         wall2Down *= -1;
-        wheel2.animations.play('turn');
     }
     if(moveWall3){
         wallTween = game.add.tween(wall3).to( { x: wall3.world.x, y: wall3.world.y + (96 * wall3Down) }, 1000, "Linear", true);
         wall3Down *= -1;
-        wheel3.animations.play('turn');
     }
     if(moveWall4){
         wallTween = game.add.tween(wall4).to( { x: wall4.world.x, y: wall4.world.y + (96 * wall4Down) }, 1000, "Linear", true);
         wall4Down *= -1;
-        wheel4.animations.play('turn');
     }
     else
         wallTween = game.add.tween(wall4).to( { x: wall4.world.x, y: wall4.world.y }, 1000, "Linear", true); //does nothing
