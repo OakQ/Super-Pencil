@@ -2,7 +2,7 @@ var game = new Phaser.Game(768, 192, Phaser.AUTO, 'phaser-example', { preload: p
 
 function preload() {
     game.load.atlas('spookyAtlas', 'assets/Sprites/spookyAtlas.png', 'assets/Sprites/spookyAtlas.json');
-    game.load.image('bg', 'assets/sprites/background.bmp');
+    game.load.image('bg', 'assets/Sprites/background.bmp');
     game.load.audio('win', 'assets/Audio/Chest.wav');
     game.load.audio('turn_wheel', 'assets/Audio/Large_Door_Slam.mp3');
     game.load.audio('music', 'assets/Audio/Knickerbocker_Quartet_-_Good-Night.mp3');
