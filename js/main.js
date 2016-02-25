@@ -93,10 +93,10 @@ function create() {
             }
         }
     }
-    wall1 = walls.create(512, 80, 'spookyAtlas', 'wall'); //create walls where we need them, on the right
-    wall2 = walls.create(544, 80, 'spookyAtlas', 'wall');
-    wall3 = walls.create(576, 80, 'spookyAtlas', 'wall');
-    wall4 = walls.create(608, 80, 'spookyAtlas', 'wall');
+    wall1 = walls.create(512, 32, 'spookyAtlas', 'wall'); //create walls where we need them, on the right
+    wall2 = walls.create(544, 32, 'spookyAtlas', 'wall');
+    wall3 = walls.create(576, 32, 'spookyAtlas', 'wall');
+    wall4 = walls.create(608, 32, 'spookyAtlas', 'wall');
     walls.setAll('body.immovable', true); //set so that they can't move
 
     wheel1 = wheels.create(160, 109, 'spookyAtlas', 'wheel_1'); //put wheels evenly spaced such that the spooky can't trigger two at a time
