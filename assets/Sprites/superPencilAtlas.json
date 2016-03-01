@@ -1,0 +1,61 @@
+{"frames": [
+
+{
+	"filename": "pencil_idle_1",
+	"frame": {"x":0,"y":0,"w":41,"h":95},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":41,"h":95},
+	"sourceSize": {"w":41,"h":95}
+},
+{
+	"filename": "pencil_idle_2",
+	"frame": {"x":43,"y":0,"w":47,"h":95},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":47,"h":95},
+	"sourceSize": {"w":47,"h":95}
+},
+{
+	"filename": "pencil_right_1",
+	"frame": {"x":92,"y":0,"w":69,"h":95},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":69,"h":95},
+	"sourceSize": {"w":69,"h":95}
+},
+{
+	"filename": "pencil_right_2",
+	"frame": {"x":163,"y":0,"w":69,"h":95},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":69,"h":95},
+	"sourceSize": {"w":69,"h":95}
+},
+{
+	"filename": "pencil_left_1",
+	"frame": {"x":305,"y":0,"w":69,"h":95},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":69,"h":95},
+	"sourceSize": {"w":69,"h":95}
+},
+{
+	"filename": "pencil_left_2",
+	"frame": {"x":234,"y":0,"w":69,"h":95},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":69,"h":95},
+	"sourceSize": {"w":69,"h":95}
+}
+],
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "dungeonAtlas.png",
+	"format": "RGBA8888",
+	"size": {"w":604,"h":128},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:c510ff2f709e8d175b059cd1cbe64773$"
+}
+}
